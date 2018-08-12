@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!-- Assignment: Hunting Github -->
+<!-- Karen Clark -->
+<!-- 2018-08-11 -->
+<!-- Your objective is to create a button that, when clicked, will send an API request to the GitHub API (see above) and will display your name in a tag below the button via DOM manipulation. -->
+<!-- BONUS: Use promises (see the advanced chapter) instead of callbacks. -->
+<html lang="en">
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#button").click(function displayName() {
+                $.get("https://api.github.com/users/clarkkarenl", function displayName(data) {
+                    $('#displayarea').append(data.name);
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input type="button" id="button" value="Get Github!">
+    </form>
+    <div id="displayarea"></div>
+</body>
+</html>
