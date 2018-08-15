@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>DojoQuery</title>
+</head>
+<body>
+    <div id="container">
+        <h1>DojoQuery</h1>
+        <p>Interact with the following items to see what they do</p>
+        <br>
+        <p id="hoverItem">Mouse over me!</p>
+        <br>
+        <p><button id="btn">Click me!</button></p>
+
+        <script>
+        var $Dojo = function(id) {
+
+            this.id = document.getElementById(id);
+
+            this.click = function(callback) {
+                this.id.addEventListener('click', callback);
+            };
+
+            this.hover = function(hoverin, hoverout) {
+                this.id.addEventListener('mouseover', hoverin);
+                this.id.addEventListener('mouseout', hoverout);
+            };
+
+            return this;    
+        }
+
+        $Dojo('btn').click(function() {
+            console.log("The button was clicked!");
+        });
+
+        $Dojo('hoverItem').hover(function() {
+            console.log("The text was hovered on!")
+        },
+        function() {
+            console.log("The text is no longer hovered on!")
+        });
+
+        </script>
+    </div>
+</body>
+</html>
