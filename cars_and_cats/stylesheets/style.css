@@ -1,0 +1,27 @@
+body {
+    width: 460px;
+}
+img {
+    height: 125px;
+    margin: 2px;
+}
+form {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+label, input, select {
+    display: inline-block;
+    margin: 14px 20px 0px 0px;
+}
+label {
+    width: 25%;
+    margin-left: 10px;
+    text-align: left;
+}
+.btn { 
+    display: inline-block;
+    color: white;
+    background-color: teal;
+    margin-top: 10px;
+    font-size: 8pt;
+}
