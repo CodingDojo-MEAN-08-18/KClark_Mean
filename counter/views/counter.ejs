@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+</head>
+<body>
+    <h2>Counter</h2>
+    <p><%= counter %> times.</p>
+
+    <!-- Add 2 to the current count -->
+    <form action='/plustwo' method='post'>
+        <input type='submit' value='+2'>
+    </form>
+    <br>
+    <!-- Reset count to 1 -->
+    <form action='/reset' method='post'>
+        <input type='submit' value='Reset Count'>
+    </form>
+</body>
+</html>
