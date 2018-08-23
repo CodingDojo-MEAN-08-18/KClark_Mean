@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/submitsurvey" method="post">
+            <label>Your Name:</label><input type="text" name="name" required>
+            <label>Dojo Location:</label><select required name="dojo">
+                <option value="chicago">Chicago</option>
+                <option value="dallas">Dallas</option>
+                <option value="east bay">East Bay</option>
+                <option value="los angeles">Los Angeles</option>
+                <option value="mountain view" selected="selected">Mountain View</option>
+                <option value="seattle">Seattle</option>
+                <option value="tulsa">Tulsa</option>
+            </select><br>
+            <!-- drop down -->
+            <label>Favorite Language:</label><select required name="lang">
+                <option value="go">Go</option>
+                <option value="javascript" selected="selected">JavaScript</option>
+                <option value="node">Node</option>
+                <option value="python">Python</option>
+                <option value="ruby">Ruby</option>
+            </select><br>
+            <label>Comment (optional):</label><textarea name="comment" rows="3" cols="45"></textarea><br>
+            <input type="submit" class="btn" value="Submit">
+        </form>
+    </div> <!-- end container -->
+</body>
+</html>
