@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+}
+#container {
+    width: 600px;
+    margin-top: 50px;
+    margin-left: 200px;
+}
+h3 {
+    text-decoration: underline;
+}
+form {
+    margin: 0 auto;
+    font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+}
+label, input, select, h3 {
+    display: inline-block;
+    margin: 14px 0px;
+}
+input, select {
+    margin-right: 40px;
+}
+label, textarea {
+    margin-left: 85px;
+}
+label {
+    width: 25%;
+    text-align: left;
+}
+label + input {
+    width: 30%;
+}
+label + select {
+    width: 30%;
+}
+#comment_box {
+    margin-left: 14%;
+    display: inline-block;	
+}
+#comment_box p {
+    margin: 10px 0px;
+}
+.result {
+    margin-left: 20px;
+}
+.btn {
+    background: teal;
+    border-radius: 2px;
+    color: white;
+    font-size: 14px;
+    width: 19%;
+    padding: 3px 3px;
+    margin-left: 305px;	
+    box-shadow: 2px 2px #888888;
+}
