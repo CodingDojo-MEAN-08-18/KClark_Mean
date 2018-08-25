@@ -4,14 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <title>Survey Form</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        $(document).ready(function() {
+            var socket = io.connect();
+            $('#survey_form').submit(function(e) {
+                e.preventDefault();
+                socket.emit('posting_form', {
+                    name: $('#name').val(),
+                    dojo: $('#dojo').val(),
+                    lang: $('#lang').val(),
+                    comment: $('#comment').val()
+                });
+            });
+            socket.on('updated_message', function(data) {
+                $('#message').html('You emitted the following information to the server: ' + JSON.stringify(data.response));
+            });
+            socket.on('random_number', function(data) {
+                $('#random_number').html('Your lucky number emitted by the server is: ' + JSON.stringify(data.response));
+            });
+        });
+    </script>
 </head>
 <body>
+    <div id="message"></div>
+    <div id="random_number"></div>
     <div class="container">
-        <form action="/submitsurvey" method="post">
-            <label>Your Name:</label><input type="text" name="name" required>
-            <label>Dojo Location:</label><select required name="dojo">
+        <form action="" id="survey_form">
+            <label>Your Name:</label><input type="text" id="name" name="name" required>
+            <label>Dojo Location:</label><select required id="dojo" name="dojo">
                 <option value="chicago">Chicago</option>
                 <option value="dallas">Dallas</option>
                 <option value="east bay">East Bay</option>
@@ -21,14 +45,14 @@
                 <option value="tulsa">Tulsa</option>
             </select><br>
             <!-- drop down -->
-            <label>Favorite Language:</label><select required name="lang">
+            <label>Favorite Language:</label><select required id="lang" name="lang">
                 <option value="go">Go</option>
                 <option value="javascript" selected="selected">JavaScript</option>
                 <option value="node">Node</option>
                 <option value="python">Python</option>
                 <option value="ruby">Ruby</option>
             </select><br>
-            <label>Comment (optional):</label><textarea name="comment" rows="3" cols="45"></textarea><br>
+            <label>Comment (optional):</label><textarea id="comment" name="comment" rows="3" cols="45"></textarea><br>
             <input type="submit" class="btn" value="Submit">
         </form>
     </div> <!-- end container -->
