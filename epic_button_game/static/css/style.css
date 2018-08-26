@@ -17,9 +17,8 @@ body {
 #red_button {
     background-color: red;
     color: white;
-    height: 30px;
+    height: 25px;
     text-align: center;
     text-decoration: none;
-    border-radius: 10px;
     margin-left: 160px;
 }

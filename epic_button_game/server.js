@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 const io = require('socket.io').listen(server);
 
 io.on('connection', function (socket) { 
-    console.log('socket connection available on socket', socket.id);
+    console.log('socket connection available');
 
     socket.on('update_count', function (data) { 
         counter++;
