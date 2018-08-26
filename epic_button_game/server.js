@@ -13,4 +13,26 @@ const server = app.listen(8000, function() {
     console.log('Listening on port 8000');
 });
 
-var route = require('./routes/index.js')(app, server);
+
+var counter = 0;
+
+app.get('/', function(req, res) {
+    res.render('index')
+});
+
+const io = require('socket.io').listen(server);
+
+io.on('connection', function (socket) { 
+    console.log('socket connection available on socket', socket.id);
+
+    socket.on('update_count', function (data) { 
+        counter++;
+        socket.emit('server_response', {counter: counter });
+    });
+
+    socket.on('reset_count', function(data) {
+        counter = 0;
+        socket.emit('server_response', {counter: counter });
+    })
+});
+

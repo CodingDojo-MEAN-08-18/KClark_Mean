@@ -1,0 +1,25 @@
+body {
+    width: 380px;
+    text-align: center;
+}
+#message {
+    font-size: 14pt;
+}
+#blue_button {
+    background-color: blue;
+    color: white;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+#red_button {
+    background-color: red;
+    color: white;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-left: 160px;
+}

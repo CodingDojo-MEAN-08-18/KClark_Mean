@@ -10,22 +10,17 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         $(document).ready(function() {
-            var counter = 1;
             var socket = io.connect();
-            $('#blue_button').submit(function(e) {
-                e.preventDefault();
-                socket.emit('update_count', {
-                    // handle button click here
-                });
+
+            $('#blue_button').click(function() {
+                socket.emit('update_count');
             });
-            $('#red_button').submit(function(e) {
-                e.preventDefault();
-                socket.emit('reset_count', {
-                    // handle button click here
-                });
+
+            $('#red_button').click(function() {
+                socket.emit('reset_count');
             });
-            socket.on('updated_message', function(data) {
-                $('#message').html('The button has been pushed ' +  $(counter) + 'time(s)!');
+            socket.on('server_response', function(data) {
+                $('#message').html(`The button has been pushed ${data.counter} time(s)!`);
             });
         });
     </script>

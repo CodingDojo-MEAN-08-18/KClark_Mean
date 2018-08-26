@@ -13,7 +13,7 @@ Plan of attack:
 2. The variable 'counter' is initialized to 0 
 3. The user pushes the button
 4. The blue button push is emitted to the server with the event name 'update_count'
-5. The server listens for the event 'update_count'. When the event is triggered, 'counter' is incremented and the new value of the variable is emitted to the client in the event called 'updated_message'
-6. The client listens for the event called 'updated_message' and when it is triggered, the 'counter' is updated.
-7. If the user pushes the red button, the 'reset_count' message is emitted to the server. The server resets the value of 'counter' variable and the result is returned to the client in the event called 'updated_message'
+5. The server listens for the event 'update_count'. When the event is triggered, 'counter' is incremented and the new value of the variable is emitted to the client in the event called 'server_response'
+6. The client listens for the event called 'server_response' and when it is triggered, the 'counter' is updated.
+7. If the user pushes the red button, the 'reset_count' message is emitted to the server. The server resets the value of 'counter' variable and the result is returned to the client in the event called 'server_response'
 8. (Repeat #6)
