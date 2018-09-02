@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic Mongoose App</title>
+    <script type="text/javascript" src="/javascript/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.get("/", function(data) {
+                $('#users').html(data);
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="form">
+        <form action="/users" method="post">
+            <label>Name:</label><input type="text" name="name" required>
+            <label>Age:</label><input type="text" name="age" required>
+            <input type="submit" class="btn" value="Submit">
+        </form>
+    </div> <!-- container -->
+    <div id="users">
+        <ul>
+            <% for (const d of data) { %>
+                <li>
+                    <%= d.name %>    
+                </li>
+            <% } %>    
+        </ul>
+    </div>
+</body>
+</html>
