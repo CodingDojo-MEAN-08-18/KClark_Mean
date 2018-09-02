@@ -16,9 +16,9 @@
     </div> <!-- container -->
     <div id="users">
         <ul>
-            <% for (const u in users) { %>
+            <% for (i = 0; i < users.length; i++) { %>
                 <li>
-                    <%= u.name %>    
+                <p><%= users[i].name %>, age <%= users[i].age %></p>
                 </li>
             <% } %>    
         </ul>
