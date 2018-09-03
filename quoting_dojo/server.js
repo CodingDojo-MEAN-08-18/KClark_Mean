@@ -20,12 +20,16 @@ app.use(flash());
 
 // basic_mongoose DB set up
 mongoose.connect('mongodb://localhost/quotes');
-const QuoteSchema = new mongoose.Schema({
+const QuotesSchema = new mongoose.Schema({
     name: { type: String, required: true, minlength: 3 },
     quote: { type: String, required: true, min: 1, max: 255 }
 }, { timestamps: true });
-mongoose.model('Quote', QuoteSchema);
-const Quote = mongoose.model('Quote');
+mongoose.model('Quotes', QuotesSchema);
+const Quote = mongoose.model('Quotes');
+
+// TODO: I am not happy making everything plural but it's
+// confusing having 'quote' and 'quotes'
+// Fix this once it gets working!
 
 // default for Promises
 mongoose.Promise = global.Promise;
@@ -37,12 +41,15 @@ app.get('/', function(req, res) {
 
 // GET '/quotes' for the screen where all the quotes are rendered
 app.get('/quotes', function(req, res) {
-    Quotes.find({}, function(err, quotes){
-        if(err) {
-            //do something
-        } else {
-            res.render('index', { quotes: quotes });
-        }
+    Quote.find({}, function(err, quotes){
+        // if(err) {
+        //     let messages = [];
+        //     console.log("Something went wrong", err);
+        //     messages.push(err); 
+        //     res.render('index', { messages: messages });
+        // } else {
+            res.render('quotes', { quotes: quotes });
+        // }
     });
 });
 
@@ -52,12 +59,14 @@ app.post('/quotes', function(req, res) {
     const quote = new Quote({ name: req.body.name, quote: req.body.quote});
     quote.save(function(err){
         if(err) {
+            let messages = [];
             console.log("Something went wrong", err);
             messages.push(err); 
-            res.redirect('/');
+            res.render('index', { messages: messages });
         } else {
-            console.log("Added quote");
-            res.redirect('/');
+            console.log("Added quotes");
+            res.render('quotes', { quotes: quotes });
+            // res.render('quotes');
         }
     });
 });

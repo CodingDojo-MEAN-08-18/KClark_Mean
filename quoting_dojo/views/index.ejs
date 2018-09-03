@@ -8,19 +8,19 @@
 </head>
 <body>
     <div id="messages">
-        <% if(messages.errs) { %>
-            <% for (const x of messages.errs) { %>
-                <h3><%= x %></h3>
+        <% if(messages) { %>
+            <% for(let i = 0; i < messages.length; i++) { %>
+                <h3><%= messages[i] %></h3>
             <% } %>
         <% } %>
     </div> <!-- messages -->
     <div id="form">
-        <form action="/users" method="post">
-            <label>Your Name:</label><input type="text" name="name" required>
-            <label>Your Quote:</label><input type="text" name="quote" required>
+        <form action="/quotes" method="post">
+            <label>Your Name:</label><input type="text" name="name">
+            <label>Your Quote:</label><input type="text" name="quote">
             <input type="submit" class="btn" name="add" value="Add My Quote!">
-            <input type="submit" class="btn" name="skip" value="Skip To Quotes!">
         </form>
-    </div> <!-- container -->
+    </div> <!-- form -->
+    <a href="/quotes">Skip to Quotes!</a>
 </body>
 </html>
