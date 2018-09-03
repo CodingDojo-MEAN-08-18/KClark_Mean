@@ -6,10 +6,16 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-flash": "0.0.2",
+    "express-session": "^1.15.6",
+    "flash": "^1.1.0",
     "mongoose": "^5.2.12",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "session": "^0.1.0",
+    "sessions": "0.0.2-7"
   },
   "devDependencies": {},
   "scripts": {
