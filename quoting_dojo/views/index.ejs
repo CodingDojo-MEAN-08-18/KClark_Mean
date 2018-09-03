@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Quoting Dojo</title>
 </head>
 <body>
-    <div id="form">
-        <form action="/quotes" method="post">
-            <label>Your Name:</label><input type="text" name="name">
-            <label>Your Quote:</label><input type="text" name="quote">
-            <input type="submit" class="btn" name="add" value="Add My Quote!">
-        </form>
-    </div> <!-- form -->
-    <a href="/quotes">Skip to Quotes!</a>
+    <h2>Welcome to Quoting Dojo!</h2>
+    <form action="/quotes" method="post">
+        <label>Your Name:</label><input type="text" name="name">
+        <label>Your Quote:</label><input type="text" name="quote">
+        <input type="submit" id="add_btn" name="add" value="Add My Quote!">
+    </form>
+    <form action="/quotes">
+        <input type="submit" id="skip_btn" value="Skip to Quotes!" />
+    </form>
 </body>
 </html>
