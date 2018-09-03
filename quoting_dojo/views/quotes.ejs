@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes</title>
+</head>
+<body>
+    <div id="intro">
+        <h2>Here are the awesome quotes!</h2>
+    </div>
+    <div id="quotes">
+        <% if(quotes.length > 0) { %>
+            <% for (const q of quotes) { %>
+                <p id="quote_body"><%= q.quote %></p>
+                <p id="name_date"><%= q.name %> at <%= q.timestamp %></p>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+</html>

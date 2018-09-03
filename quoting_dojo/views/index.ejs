@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <div id="messages">
+        <% if(messages.errs) { %>
+            <% for (const x of messages.errs) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    </div> <!-- messages -->
+    <div id="form">
+        <form action="/users" method="post">
+            <label>Your Name:</label><input type="text" name="name" required>
+            <label>Your Quote:</label><input type="text" name="quote" required>
+            <input type="submit" class="btn" name="add" value="Add My Quote!">
+            <input type="submit" class="btn" name="skip" value="Skip To Quotes!">
+        </form>
+    </div> <!-- container -->
+</body>
+</html>
