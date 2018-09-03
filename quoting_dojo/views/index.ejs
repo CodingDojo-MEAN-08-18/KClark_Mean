@@ -7,13 +7,6 @@
     <title>Quoting Dojo</title>
 </head>
 <body>
-    <div id="messages">
-        <% if(messages) { %>
-            <% for(let i = 0; i < messages.length; i++) { %>
-                <h3><%= messages[i] %></h3>
-            <% } %>
-        <% } %>
-    </div> <!-- messages -->
     <div id="form">
         <form action="/quotes" method="post">
             <label>Your Name:</label><input type="text" name="name">

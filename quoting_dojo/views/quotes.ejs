@@ -11,8 +11,8 @@
         <h2>Here are the awesome quotes!</h2>
     </div>
     <div id="quotes">
-        <% for(const q in quotes) { %>
-            <p id="quote_body"><%= q.quote %></p>
+        <% for(const q of quotes) { %>
+            <p id="quote_body">"<%= q.quote %>"</p>
             <p id="name_date"> - <%= q.name %> at <%= q.createdAt %></p>
         <% } %>
     </div> <!-- quotes -->
