@@ -34,15 +34,7 @@ mongoose.Promise = global.Promise;
 // Root Request
 app.get('/', function(req, res) {
     User.find({}, function(err, users){
-        if(err) {
-            console.log("Something went wrong", err);
-            for(const key in err.errors) {
-                req.flash('errs', err.errors[key].message);
-            }
-            res.redirect('index');
-        } else {
-            res.render('index', { users: users });
-        }
+        res.render('index', { users: users });
     });
 });
 
