@@ -14,7 +14,7 @@
     <div id="display">
         <% if(cats) { %>
             <% for(let i = 0; i < cats.length; i++) { %>
-                <p><%= cats[i].name %></p>
+                <p><a href="/cats/<%= cats[i]._id %>"> <%= cats[i].name %></a></p>
                 <p>A <%= cats[i].color %> cat aged <%= cats[i].age %> years</p>
                 <p><%= cats[i].name %>'s favorite food is <%= cats[i].fave_food %></p>
                 <hr>

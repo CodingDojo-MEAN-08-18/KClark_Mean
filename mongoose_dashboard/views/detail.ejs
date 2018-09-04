@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="/css/style.css">
+<body>
+    <div id="navbar">
+        <a href="/">Home</a> 
+    </div>
+    <div id="display">
+        <% if(cat) { %>
+            <p><%= cat[0].name %></p>
+            <p>A <%= cat[0].color %> cat aged <%= cat[0].age %> years</p>
+            <p><%= cat[0].name %>'s favorite food is <%= cat[0].fave_food %></p>
+        <% } %>
+    </div> <!-- display -->
+    <form action="/edit/<%= cat[0]._id %>" method="get">
+        <input type="submit" value="Edit This Cat"" />
+    </form>
+    <form action="/destroy/<%= cat[0]._id %>" method="post">
+        <input type="submit" value="Delete This Cat"" />
+    </form>
+</body>
