@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Cat Dashboard : Home</title>
+</head>
+<body>
+    <div id="welcome">
+        <h2>Welcome to the Cat Dashboard!</h2>
+    </div>
+    <div id="display">
+        <% if(cats) { %>
+            <% for(let i = 0; i < cats.length; i++) { %>
+                <p><%= cats[i].name %></p>
+                <p>A <%= cats[i].color %> cat aged <%= cats[i].age %> years</p>
+                <p><%= cats[i].name %>'s favorite food is <%= cats[i].fave_food %></p>
+                <hr>
+            <% } %>
+        <% } %>
+    </div> <!-- display -->
+</body>
+</html>

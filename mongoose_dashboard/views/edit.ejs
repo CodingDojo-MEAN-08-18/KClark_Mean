@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="/css/style.css">
+<body>
+    <form action="/cats/<%= cat.cat_id %>" method="post">
+        <label>Name:</label><input type="text" name="name" value=<%= cat.name %>>
+        <label>Age:</label><input type="text" name="age" value=<%= cat.age %>>
+        <label>Color:</label><input type="text" name="color" value=<%= cat.color %>>
+        <label>Favorite Food:</label><input type="text" name="fave_food" value=<%= cat.fave_food %>>
+        <input type="submit" name="update_cat" value="Update Cat">
+    </form>
+</body>
