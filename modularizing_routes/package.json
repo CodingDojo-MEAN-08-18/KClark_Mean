@@ -1,0 +1,24 @@
+{
+  "name": "modularizing_routes",
+  "version": "1.0.0",
+  "description": "Assignment: Modularizing Routes",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.2.12",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
