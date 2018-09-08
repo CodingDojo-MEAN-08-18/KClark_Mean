@@ -8,53 +8,65 @@ module.exports = function Route(app, server) {
         Task.find({}, function(err, task_list) {
             if(err) {
                 console.log(err);
-                res.redirect('/');
+                res.json({});
             } else {
                 res.json(task_list);
             };
         });
     });
 
-    // GET '/tasks/:id' will bring up the task of that particular id
+
+    // GET '/tasks/:id' - list task for that id
     app.get('/tasks/:id', function(req, res) {
         Task.find({ _id: req.params.id }, function(err, task_detail) {
             if(err) {
                 console.log(err);
-                res.redirect('/');
+                res.json({});
             } else {
                 res.json(task_detail);
             };
         });
     });
 
-    // POST '/tasks/:title/' will add a task into the database
-    app.post('/tasks/:title', function(req, res) {
-        const new_task = new Task({ title: req.params.title, description: req.params.description, completed: req.params.completed })
+
+    // POST '/tasks' - create a task
+    app.post('/tasks', function(req, res) {
+        const new_task = new Task(req.body)
 
         new_task.save(function(err) {
             if(err) {
                 console.log(err);
-                res.redirect('/');
+                res.json({});
             } else {
                 console.log('New task created');
-                res.redirect('/');
+                res.json({});
             };
         });
     });
 
+    // PUT '/tasks/:id' - update a task by id
     app.put('/tasks/:id', function(req, res) {
-        // TO BE ADDED
+        Task.updateOne({ _id: req.params.id }, {title: req.body.title, description: req.body.description, completed: req.body.completed }, function(err, result) {
+            if(err) {
+                console.log(err);
+                res.json({});
+            } else { 
+                console.log('Task updated');
+                res.json({});
+            }
+        });
     });
 
-    // DELETE '/tasks/:id/' will delete a task from the database
+
+    // DELETE '/tasks/:id/' - delete a task by id
     app.delete('/tasks/:id', function(req, res) {
         Task.deleteOne({ _id: req.params.id }, function(err, result) {
             if(err) {
                 console.log(err);
-                res.redirect('/');
+                res.json({});
             } else {
                 console.log('Deleted id: ' + req.params.id)
-                res.redirect('/');
+                res.json({});
             };
         });
     });
