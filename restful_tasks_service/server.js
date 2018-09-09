@@ -5,6 +5,8 @@ const app = express();
 
 app.use(bodyParser.json()); 
 
+app.use(express.static(path.join(__dirname + '/public/dist/public')));
+
 const db = 'mongodb://localhost/restful_task_api';
 
 require('./server/config/mongoose.js')(db);
