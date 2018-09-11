@@ -1,0 +1,7 @@
+<div *ngIf="hero">
+  <h2>{{ task.title | uppercase }} Details</h2>
+  <div><span>id: </span>{{ task.id }}</div>
+  <div><span>description: </span>{{ task.description }}</div>
+  <div><span>completed: </span>{{ task.completed }}</div>
+  <button (click)="goBack()">go back</button>
+</div>
