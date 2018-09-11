@@ -1,0 +1,8 @@
+<h2>My Tasks</h2>
+<ul class="tasks">
+  <li *ngFor="let task of tasks">
+    <a routerLink="/detail/{{task.id}}"><span>id: </span>{{ task.id }}</a>
+    <div><span>description: </span>{{ task.description }}</div>
+    <div><span>completed: </span>{{ task.completed }}</div>
+    </li>
+</ul>
