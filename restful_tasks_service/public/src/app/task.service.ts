@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Task } from './task';
+import { TASKS } from './mock-tasks';
 import { MessageService } from './message.service';
 
 
@@ -25,7 +26,7 @@ export class TaskService {
 
   getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(this.tasksUrl).pipe(
-      tap(tasks => this.log('fetched tasks')), 
+      tap(tasks => this.log('fetched tasks')),
       catchError(this.handleError('getTasks', []))
     );
     this.messageService.add('TaskService: fetched tasks');

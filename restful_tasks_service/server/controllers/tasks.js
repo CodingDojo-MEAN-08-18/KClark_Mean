@@ -11,7 +11,7 @@ module.exports = {
                 console.log(err);
                 res.json({ 'status': 500, 'errors': err });
             } else {
-                res.json({ 'status': 200, 'tasks': task_list });
+                res.json(task_list);
             }
         })
     },
