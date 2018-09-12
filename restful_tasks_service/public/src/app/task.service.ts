@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Task } from './task';
-import { TASKS } from './mock-tasks';
 import { MessageService } from './message.service';
 
 
@@ -18,7 +17,8 @@ const httpOptions = {
 })
 export class TaskService {
 
-  private tasksUrl = 'api/tasks';
+  tasks: Task[] = [];
+  private tasksUrl = 'tasks';
 
   constructor(
     private http: HttpClient,
@@ -30,10 +30,10 @@ export class TaskService {
       catchError(this.handleError('getTasks', []))
     );
     this.messageService.add('TaskService: fetched tasks');
-    return of(TASKS);
+    return of(this.tasks);
   }
 
-  getTaskNo404<Data>(id: number): Observable<Task> {
+  getTaskNo404<Data>(id: string): Observable<Task> {
     const url = `${this.tasksUrl}/?id=${id}`;
     return this.http.get<Task[]>(url)
       .pipe(
@@ -46,7 +46,7 @@ export class TaskService {
       );
   }
 
-  getTask(id: number): Observable<Task> {
+  getTask(id: string): Observable<Task> {
     const url = `${this.tasksUrl}/${id}`;
     return this.http.get<Task>(url).pipe(
       tap(_ => this.log(`fetched task id=${id}`)),
