@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Broadcast Example</title>
+  <script type="text/javascript" src="/javascript/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    var socket = io.connect();
+    var current_user;
+
+    var new_user = function() {
+      var name = prompt("Please enter your name to chat");
+      socket.emit("page_load", name);
+    }
+
+    new_user();
+
+    // socket.on("existing_user", function(data){
+    //   $("#error").html(data.error)
+    //   new_user();
+    // })
+
+    socket.on("load_messages", function(data){
+      $("#error").html("") //resetting the error message
+      current_user = data.current_user;
+      var messages = data.messages;
+      var messageThread = "";
+
+      for (var i = 0; i < messages.length; i++){
+        messageThread += "<p>" + messages[i].name + ": " + messages[i].message + "</p>";
+      }
+
+      $("#message_board").append(messageThread);
+    })
+
+    $("#new_message").submit(function(){
+      socket.emit("new_message", {message: $("#message").val(), user: current_user})
+      return false;
+    })
+
+    socket.on("post_new_message", function(data) {
+      $("#message_board").append("<p>" + data.user + ": " + data.new_message + "</p>");
+    })
+  })
+
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div id="error"></div>
+    <p>Conversation Board</p>
+    <div id="message_board"></div>
+    <form id="new_message">
+      <input type="text" id="message" placeholder="enter your message here">
+      <input type="submit" value="Send">
+    </form>
+  </div>
+</body>
+</html>

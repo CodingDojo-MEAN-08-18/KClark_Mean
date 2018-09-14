@@ -1,0 +1,20 @@
+<body>
+  <h1>{{ title }}</h1>
+  <div>
+    <h2>All The Tasks</h2>
+    <ul class="tasks">
+      <li *ngFor="let task of tasks">
+        <div>{{ task.title }} - {{ task.description }}</div>
+        </li>
+    </ul>
+  </div>
+  <div>
+    <h2>The Third Task</h2>
+    <ul class="third_task">
+      <li *ngFor="let task of tasks | slice:2:3">
+          <div>{{ task.title }} - {{ task.description }}</div>
+      </li>
+    </ul>
+  </div>
+  <router-outlet></router-outlet>
+</body>
