@@ -1,6 +1,11 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/tasks">Tasks</a>
-</nav>
+<h1>{{ title }}</h1>
+<div>
+  <h2>All the Tasks</h2>
+  <ul class="tasks">
+    <li *ngFor="let task of tasks">
+      <div>{{ task.title }} - {{ task.description }}</div>
+      </li>
+  </ul>
+</div>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
