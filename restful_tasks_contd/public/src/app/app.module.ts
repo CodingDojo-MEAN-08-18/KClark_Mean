@@ -6,8 +6,6 @@ import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { TasksComponent } from './tasks/tasks.component';
-import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -16,9 +14,7 @@ import { MessagesComponent } from './messages/messages.component';
     HttpClientModule
   ],
   declarations: [
-    AppComponent,
-    TasksComponent,
-    MessagesComponent
+    AppComponent
   ],
   bootstrap: [AppComponent]
 })

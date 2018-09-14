@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TasksComponent } from './tasks/tasks.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
-  { path: 'task/:id', component: TasksComponent },
-  { path: 'tasks', component: TasksComponent }
+  { path: 'task/:id', component: AppComponent },
+  { path: 'tasks', component: AppComponent }
 ];
 
 @NgModule({
