@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
  import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
+
  @NgModule({
   imports: [
     BrowserModule,
@@ -17,4 +18,5 @@ import { TasksComponent } from './tasks/tasks.component';
   ],
   bootstrap: [AppComponent]
 })
- export class AppModule { }
+
+export class AppModule { }

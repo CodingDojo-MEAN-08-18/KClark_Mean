@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { TasksComponent } from './tasks/tasks.component';
 
 const routes: Routes = [
-  // { path: 'task/:id', component: TasksDetailComponent },
   { path: 'tasks', component: TasksComponent }
 ];
 
