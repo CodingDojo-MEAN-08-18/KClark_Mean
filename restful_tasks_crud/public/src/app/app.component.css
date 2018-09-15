@@ -1,0 +1,13 @@
+/* AppComponent's private CSS styles */
+body {
+  width: 350px;
+}
+h1 {
+  font-size: 18pt;
+}
+h2 {
+  font-size: 14pt;
+}
+ul {
+  color: black;
+}

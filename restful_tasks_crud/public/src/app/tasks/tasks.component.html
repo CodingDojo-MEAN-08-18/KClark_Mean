@@ -1,0 +1,30 @@
+<body>
+  <h1>{{ title }}</h1>
+  <div id="list_frame">
+    <ul class="tasks">
+      <li *ngFor="let task of tasks">
+        <div>
+          <p>{{ task.title }}<button id="details" class="btn" (click)=onClickDetails(task)>Show</button></p>
+        </div>
+        </li>
+    </ul>
+  </div>
+  <div *ngIf="selectedTask" id="details_frame">
+    <h3>{{ selectedTask.title }}</h3>
+      <p>Description: {{ selectedTask.description }}</p>
+  </div>
+  <form (submit)="onSubmit()" class="postForm">
+    <p>{{ newTask | json }}</p>
+    <label>Task title:
+      <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+    </label>
+    <label>Task description:
+      <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+    </label>
+    <label>Task completed?
+      <input type="checkbox" name="newTask.completed" [(ngModel)]="newTask.completed" />
+    </label>
+    <input type="submit" value="Create Task" />
+  </form>
+  <router-outlet></router-outlet>
+</body>
