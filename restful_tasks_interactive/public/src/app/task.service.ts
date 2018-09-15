@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
 import { Task } from './task';
 
-const httpOptions = {
+ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
-@Injectable({
+ @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
