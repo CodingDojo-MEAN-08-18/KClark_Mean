@@ -1,0 +1,37 @@
+body {
+    width: 470px;
+    border: 2px solid gold;
+    border-radius: 2px;
+    padding: 0px 5px 0px 5px;
+}
+table {
+    border:1px solid black;
+}
+table td {
+    border:1px solid black;
+}
+#list_frame {
+    width: 460px;
+    border: 2px solid blue;
+    border-radius: 2px;
+    padding: 1px 6px;
+    margin: 5px 0px 10px 0px;
+}
+#details {
+    color: white;
+    background-color: cornflowerblue;
+    border-radius: 4px;
+}
+#details_frame {
+    width: 440px;
+    border-radius: 2px;
+    border: 2px solid green;
+    padding: 1px 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#remove {
+    color: white;
+    background-color: red;
+    border-radius: 4px;
+}

@@ -1,11 +1,32 @@
-// server/models/task.js
-
 const mongoose = require('mongoose');
 
-const TaskSchema = new mongoose.Schema ({
-    title: { type: String, required: true, minlength: 3, maxlength: 64 },
-    description: { type: String, required: true, minlength: 3, maxlength: 255 },
-    completed: { type: Boolean, required: true }
-}, { timestamps: true });
+const { Schema } = mongoose, 
+  ObjectId = Schema.ObjectId;
 
-mongoose.model('Task',TaskSchema);
+const TaskSchema = new Schema(
+  {
+    title: { 
+      type: String, 
+      required: [true, 'Title is a required field'],
+      minlength: 3, 
+      maxlength: 64 
+    }, 
+    description: { 
+      type: String, 
+      required: [true, 'Description is a required field'], 
+      minlength: 3, 
+      maxlength: 255 
+    },
+    completed: { 
+      type: Boolean, 
+      required: false
+    }}, { 
+      timestamps: true 
+    }
+);
+
+TaskSchema.virtual(`taskId`).get(function() {
+  return this._id;
+})
+
+module.exports = mongoose.model('Task', TaskSchema);

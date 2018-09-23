@@ -1,0 +1,28 @@
+<body>
+  <h1>{{ title }}</h1>
+  <div id="list_frame">
+    <table class="tasks">
+      <thead>
+        <th>Title</th>
+        <th>Completed?</th>
+        <th>Show</th>
+        <th>Remove</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.title }}</td>
+          <td>{{ task.completed }}</td>
+          <td><button id="details" class="btn" (click)='onSelect(task)'>Details</button></td>
+          <td (click)='onEvent($event)'><button id="remove" class="btn" (click)='onRemove(task)'>Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="selectedTask" id="details_frame">
+    <h3>{{ selectedTask.title }}</h3>
+      <p>Id: {{ selectedTask.id }}</p>
+      <p>Description: {{ selectedTask.description }}</p>
+      <p>Completed? {{ selectedTask.completed }}</p>
+  </div>
+  <router-outlet></router-outlet>
+</body>

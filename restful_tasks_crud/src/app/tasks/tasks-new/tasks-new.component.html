@@ -1,0 +1,14 @@
+<section>
+  <fieldset>
+    <legend>Create Task</legend>
+    <form (submit)='onSubmit($event, form)' #form='ngForm'>
+        <label for="title">Task title:</label>
+        <input type="text" name="title" [(ngModel)]="task.title" required>
+        <label for="description">Task description:</label>
+        <input type="text" name="description" [(ngModel)]="task.description" required>
+        <label for="completed">Task completed?</label>
+        <input type="checkbox" name="completed" [(ngModel)]="task.completed">
+        <button *ngIf='form.valid'>Create Task</button>
+      </form>
+    </fieldset>
+</section> 

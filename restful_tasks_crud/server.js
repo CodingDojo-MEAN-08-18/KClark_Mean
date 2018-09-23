@@ -1,17 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const parser = require('body-parser');
+const logger = require('morgan');
 const path = require('path');
+
+const port = process.env.PORT || 8000;
 const app = express();
 
-app.use(bodyParser.json()); 
+require('./server/config/database');
 
-app.use(express.static(path.join(__dirname + '/public/dist/public')));
 
-const db = 'mongodb://localhost/restful_task_api';
-
-require('./server/config/mongoose.js')(db);
-require('./server/config/routes.js')(app);
-
-app.listen(4200, function() {
-    console.log('Listening on port 4200');
-});
+app
+  .use(parser.urlencoded({ extended: true }))
+  .use(parser.json())
+  .use(logger('dev'))
+  .use(express.static(path.join(__dirname, 'dist/public')))
+  .use('/api', require('./server/routes'))
+  .use(require('./server/routes/catch-all.routes'))
+  .listen(port, () => console.log(`Express server listening on port ${ port }`));
