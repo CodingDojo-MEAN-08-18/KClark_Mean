@@ -1,3 +1,22 @@
-<p>
-  author-list works!
-</p>
+<!-- <app-author-new (createBook)='onCreate($event)'></app-author-new> -->
+
+<section>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Author</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let author of authors' (click)='onSelect(author)' [routerLink]='author.id'>
+        <td>{{ author.id }}</td>
+        <td>{{ author.author }}</td>
+        <td (click)='onEvent($event)'>
+          <button (click)='onRemove(author)'>Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- <app-author-detail [author]='selectedBook'></app-author-detail> -->

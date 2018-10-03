@@ -1,3 +1,15 @@
-<p>
-  author-new works!
-</p>
+<section>
+  <fieldset>
+    <legend>Create Author</legend>
+
+    {{ form.value | json }}
+
+    <form (submit)='onSubmit($event, form)' #form='ngForm'>
+      <div>
+        <label for="">author</label>
+        <input type="text" name='author' [(ngModel)]='author.author' required>
+      </div>
+      <button *ngIf='form.valid'>Submit</button>
+    </form>
+  </fieldset>
+</section>
