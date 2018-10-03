@@ -10,7 +10,10 @@ const authorSchema = new Schema(
       required: [true, 'Author name is required'],
       min: [3, 'Author name must be three chars or longer']
     }
+  },
+  {
+    timestamps: true
   }
+);
 
-
-)
+module.exports = mongoose.model('Author', authorSchema);
