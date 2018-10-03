@@ -2,16 +2,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import * as fromAuthors from './authors';
-import { environment } from '../environments/environment';
 
+import { environment } from '../environments/environment';
 const enableTracing = true && !environment.production;
 
 const routes: Routes = [
   {
     path: '',
-    component: fromAuthors.AuthorListComponent,
+    redirectTo: 'authors',
+    pathMatch: 'full',
+  },
+  {
+    path: 'authors',
 
     children: [
+      {
+        path: '',
+        component: fromAuthors.AuthorListComponent,
+      },
       {
         path: 'new',
         component: fromAuthors.AuthorNewComponent,
@@ -31,6 +39,6 @@ const routes: Routes = [
       enableTracing,
     }),
   ],
-  declarations: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

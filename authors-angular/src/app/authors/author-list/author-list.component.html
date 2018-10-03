@@ -12,6 +12,7 @@
         <td>{{ author.id }}</td>
         <td>{{ author.author }}</td>
         <td (click)='onEvent($event)'>
+          <button (click)='onUpdate(author)'>Edit</button>
           <button (click)='onRemove(author)'>Remove</button>
         </td>
       </tr>
