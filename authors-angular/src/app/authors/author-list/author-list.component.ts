@@ -35,6 +35,14 @@ export class AuthorListComponent implements OnInit {
     });
   }
 
+  onUpdate(author: Author) {
+    console.log('updating author', author);
+    this.authorService.updateAuthor(author).subscribe(updatedAuthor => {
+      this.authors = this.authors.filter(a => a.id === updatedAuthor.id);
+    });
+
+  }
+
   onRemove(author: Author) {
     console.log('removing author', author);
 

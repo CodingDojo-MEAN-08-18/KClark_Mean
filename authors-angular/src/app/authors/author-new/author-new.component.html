@@ -2,14 +2,12 @@
   <fieldset>
     <legend>Create Author</legend>
 
-    {{ form.value | json }}
-
-    <form (submit)='onSubmit($event, form)' #form='ngForm'>
+    <form (submit)="onSubmit($event, form)" #form="ngForm">
       <div>
         <label for="">author</label>
-        <input type="text" name='author' [(ngModel)]='author.author' required>
+        <input type="text" name="author" [(ngModel)]="author.author" required minlength="3">
       </div>
-      <button *ngIf='form.valid'>Submit</button>
+      <button *ngIf="form.valid">Submit</button>
     </form>
   </fieldset>
 </section>
