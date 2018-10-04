@@ -1,0 +1,11 @@
+<section id="review">
+    <div>
+      <h1>Product Component</h1>
+      <p><button [routerLink] = "['all', 22]"> Go to /review/all/22</button></p>
+      <p><button [routerLink] = "['author', 1782]"> Go to /review/author/1782</button></p>
+      <p><button [routerLink] = "['details', 37]"> Go to /review/details/37</button></p>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </section>
