@@ -1,0 +1,6 @@
+<section>
+  <div *ngFor='let note of notes'>
+    <p id="created">Noted on {{ note.createdAt }}</p>
+    <p>{{ note.note }}</p>
+  </div>
+</section>

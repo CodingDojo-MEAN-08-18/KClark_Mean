@@ -1,0 +1,12 @@
+<section>
+  <fieldset>
+    <div *ngIf='errors.length'>
+      <p *ngFor='let error of errors' class="alert alert-danger">
+        {{ error }}
+      </p>
+    </div>
+    <app-note-form [note]='note' (noteEvent)='createNote($event)'>
+      <button>Add Note</button>
+    </app-note-form>
+  </fieldset>
+</section>

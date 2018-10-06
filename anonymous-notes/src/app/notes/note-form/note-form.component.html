@@ -1,0 +1,8 @@
+<form (submit)='onSubmit(form)' #form='ngForm'>
+  <input type="hidden" name='_id' [ngModel]='note?._id'>
+  <div id="form">
+    <label for="">Note:</label>
+    <input type="text" name='note' [ngModel]='note?.note' required>
+  </div>
+  <ng-content *ngIf='form.valid'></ng-content>
+</form>
