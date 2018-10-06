@@ -14,17 +14,15 @@ import { NavComponent } from './nav/nav.component';
    declarations: [
       AppComponent,
       ...fromAuthors.components,
-      NavComponent
+      NavComponent,
    ],
    imports: [
       BrowserModule,
       FormsModule,
       HttpClientModule,
-      AppRoutingModule,
+      AppRoutingModule
    ],
    providers: [],
-   bootstrap: [
-      AppComponent
-   ]
+   bootstrap: [ AppComponent ]
 })
-export class AppModule { }
+export class AppModule {}

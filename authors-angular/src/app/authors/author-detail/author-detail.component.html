@@ -2,9 +2,15 @@
   <fieldset>
     <legend>Selected Author</legend>
 
-    <div>
-      Author: {{ author?.author }}
+    <div *ngIf='errors.length'>
+      <p *ngFor='let error of errors' class="alert alert-danger">
+        {{ error }}
+      </p>
     </div>
-
+    
+    <app-author-form (authorEvent)='updateAuthor($event)' [author]='author'>
+      <button (click)='onCancel()'>Cancel</button>
+      <button>Update</button>
+    </app-author-form>
   </fieldset>
 </section>

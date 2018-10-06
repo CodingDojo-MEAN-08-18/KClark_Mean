@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { of, Observable } from 'rxjs';
 
 import { Author } from '../models';
 
@@ -27,7 +27,7 @@ export class AuthorService {
   }
 
   updateAuthor(author: Author): Observable<Author> {
-    return this.http.put<Author>(this.base + author.id, author);
+    return this.http.put<Author>(this.base + author._id, author);
   }
 
   removeAuthor(id: string): Observable<Author> {

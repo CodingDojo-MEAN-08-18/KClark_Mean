@@ -1,4 +1,5 @@
 const Author = require('mongoose').model('Author');
+const { Http } = require('@status/codes');
 
 module.exports = {
   index(request, response) {
@@ -14,7 +15,7 @@ module.exports = {
           key => error.errors[key].message
         );
         
-        response.status(500).json(errors);
+        response.status(Http.UnprocessableEntity).json(errors);
       });
   },
   show(request, response) {
@@ -26,7 +27,7 @@ module.exports = {
     Author.findByIdAndUpdate(
       request.params.author_id,
       { $set: request.body },
-      { new: true }
+      { new: true, runValidators: true }
     )
       .then(author => response.json(author))
       .catch(error => {
@@ -34,7 +35,7 @@ module.exports = {
           key => error.errors[key].message
         );
 
-        response.status(500).json(errors);
+        response.status(Http.UnprocessableEntity).json(errors);
       });
   },
   destroy(request, response) {

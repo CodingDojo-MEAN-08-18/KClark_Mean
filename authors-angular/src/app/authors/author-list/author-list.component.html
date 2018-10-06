@@ -1,5 +1,3 @@
-<!-- <app-author-new (createBook)='onCreate($event)'></app-author-new> -->
-
 <section>
   <table>
     <thead>
@@ -8,16 +6,13 @@
     </thead>
 
     <tbody>
-      <tr *ngFor='let author of authors' (click)='onSelect(author)' [routerLink]='author.id'>
-        <td>{{ author.id }}</td>
+      <tr *ngFor='let author of authors' (click)='onSelect(author)' [routerLink]='author._id'>
+        <td>{{ author._id }}</td>
         <td>{{ author.author }}</td>
         <td (click)='onEvent($event)'>
-          <button (click)='onUpdate(author)'>Edit</button>
           <button (click)='onRemove(author)'>Remove</button>
         </td>
       </tr>
     </tbody>
   </table>
 </section>
-
-<!-- <app-author-detail [author]='selectedBook'></app-author-detail> -->

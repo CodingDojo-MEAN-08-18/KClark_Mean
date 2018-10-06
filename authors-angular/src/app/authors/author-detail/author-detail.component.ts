@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Author } from '../../models/author';
-import { map, switchMap } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
+import { map, switchMap, take } from 'rxjs/operators';
 
 import { AuthorService } from '../../services';
+import { Author } from '../../models/author';
 
 @Component({
   selector: 'app-author-detail',
@@ -14,9 +14,12 @@ export class AuthorDetailComponent implements OnInit {
   @Input()
   author: Author;
 
+  errors: string[] = [];
+
   constructor(
     private readonly authorService: AuthorService,
-    private readonly route: ActivatedRoute
+    private readonly route: ActivatedRoute,
+    private readonly router: Router
   ) {}
 
   ngOnInit() {
@@ -27,5 +30,25 @@ export class AuthorDetailComponent implements OnInit {
         switchMap(id => this.authorService.getAuthor(id))
       )
       .subscribe(author => (this.author = author));
+  }
+
+  updateAuthor(author: Author) {
+    console.log('updating author', author);
+
+    this.authorService
+      .updateAuthor(author)
+      .pipe(take(1))
+      .subscribe(
+        () => {
+          this.router.navigateByUrl('authors');
+        },
+        error => {
+          this.errors = error.error;
+        }
+      );
+  }
+
+  onCancel() {
+    this.router.navigateByUrl('authors');
   }
 }

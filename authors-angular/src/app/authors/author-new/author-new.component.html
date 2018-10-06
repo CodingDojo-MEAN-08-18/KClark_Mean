@@ -2,12 +2,14 @@
   <fieldset>
     <legend>Create Author</legend>
 
-    <form (submit)="onSubmit($event, form)" #form="ngForm">
-      <div>
-        <label for="">author</label>
-        <input type="text" name="author" [(ngModel)]="author.author" required minlength="3">
-      </div>
-      <button *ngIf="form.valid">Submit</button>
-    </form>
+    <div *ngIf='errors.length'>
+      <p *ngFor='let error of errors' class="alert alert-danger">
+        {{ error }}
+      </p>
+    </div>
+
+    <app-author-form [author]='author' (authorEvent)='createAuthor($event)'>
+      <button>Submit</button>
+    </app-author-form>
   </fieldset>
 </section>

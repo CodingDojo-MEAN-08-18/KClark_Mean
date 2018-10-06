@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import * as fromAuthors from './authors';
 
 import { environment } from '../environments/environment';
-const enableTracing = true && !environment.production;
+const enableTracing = false && !environment.production;
 
 const routes: Routes = [
   {
@@ -39,6 +39,6 @@ const routes: Routes = [
       enableTracing,
     }),
   ],
-  exports: [RouterModule],
+  exports: [ RouterModule ],
 })
 export class AppRoutingModule {}

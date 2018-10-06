@@ -1,5 +1,5 @@
 export class Author {
-  id: string;
+  _id: string;
   author: string;
 
   constructor() {
